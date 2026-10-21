@@ -1,0 +1,33 @@
+[package]
+name = "luminary-sort"
+version = "0.1.0"
+edition = "2021"
+description = "Fast, minimal black-and-white photo & video sorter for photographers and videographers"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+rayon = "1.10"
+uuid = { version = "1", features = ["v4", "serde"] }
+walkdir = "2.5"
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+ron = "0.8"
+image = { version = "0.25", features = ["gif", "ico", "png", "jpeg"] }
+thiserror = "2.0"
+anyhow = "1.0"
+
+# GUI (egui/eframe). Verified as far as compilation; visual check requires a display.
+eframe = "0.27"
+egui = "0.27"
+
+[features]
+default = []
+# video = ["dep:ff_metadata"]
+# raw = ["dep:raw-cam"]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

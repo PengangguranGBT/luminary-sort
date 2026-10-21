@@ -1,0 +1,7 @@
+/target
+**/*.rs.bak
+index.lumi
+*.lumi.bak
+.DS_Store
+.vscode/
+.idea/
